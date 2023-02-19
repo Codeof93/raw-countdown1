@@ -1,0 +1,16 @@
+
+
+import datetime
+
+# Get current time in UTC timezone
+now = datetime.datetime.utcnow()
+
+# Get next upcoming Monday at 8pm in UTC timezone
+countdown_date = now + datetime.timedelta(days=(7 - now.weekday()) % 7, hours=20-now.hour, minutes=0, seconds=0)
+
+# Calculate time left until countdown date
+time_left = countdown_date - now
+
+# Print countdown message
+print("Countdown to WWE Raw on Monday at 8pm UTC:")
+print("{} days, {} hours, {} minutes, {} seconds".format(time_left.days, time_left.seconds // 3600, (time_left.seconds // 60) % 60, time_left.seconds % 60))
